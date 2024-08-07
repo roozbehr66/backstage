@@ -61,7 +61,74 @@ TODO:
  - Legacy plugins / interop
  - dynamic updates, runtime API
 
+Use cases for extensibility:
+- Replace an extension in a plugin wholesale (eg completely custom entity page)
+- Replace an extension in the app wholesale (eg completely custom app layout)
+- Augment an extension in a plugin using the existing extension (eg wrap entity page in an additional context)
+- Augment an extension in the app using the existing extension (eg wrap app layout in an additional context)
+- Adding a new extension which attaches itself to an existing input elsewhere
+
 */
+
+entityPageBaseDefinition.overrides();
+
+const entityPageExtension = catalogPlugin.extensions.get('page:catalog/entity');
+const entityPageExtension = catalogPlugin.extensions.catalogPage;
+import { entityPageExtension } from '@backstage/plugin-catalog';
+
+//      where does this go? vvv   vvv how do we access this?
+export const entityPageOverride = entityPageExtension.override({
+  *factory(origFactory) {
+    const output = origFactory();
+    yield* output;
+    const page = output.get(coreExtensionData.reactElement);
+    yield coreExtensionData.reactElement(
+      <MyCustomWrapper>{page}</MyCustomWrapper>,
+    );
+  },
+});
+
+export const entityPageOverride = entityPageExtension.override({
+  outputs: [coreExtensionData.reactElement],
+  *factory(ogFactory) {
+    yield coreExtensionData.reactElement(<div />);
+  },
+});
+
+export default catalogPlugin.override({
+  extensions: [
+    catalogPlugin.extensions.get('page:catalog/entity').override({
+      *factory(origFactory) {
+        const output = origFactory();
+        yield* output;
+        const page = output.get(coreExtensionData.reactElement);
+        yield coreExtensionData.reactElement(
+          <MyCustomWrapper>{page}</MyCustomWrapper>,
+        );
+      },
+    }),
+    catalogPlugin.extensions
+      .get('page:catalog/index')
+      .override({ disabled: true }),
+  ],
+});
+
+export default createExtensionOverrides({
+  extensions: [entityPageOverride],
+});
+
+const homePageExtension = createExtension({
+  kind: 'page',
+  namespace: 'catalog',
+  attachTo: { id: 'page:home', input: 'props' },
+  output: {
+    children: coreExtensionData.reactElement,
+    title: titleExtensionDataRef,
+  },
+  factory() {
+    return { children: homePage, title: 'just a title' };
+  },
+});
 
 /* core */
 
