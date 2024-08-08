@@ -1,5 +1,16 @@
 # @backstage/plugin-techdocs-backend
 
+## 1.10.10-next.3
+
+### Patch Changes
+
+- a16632c: Update configuration schema to match actual behavior
+- Updated dependencies
+  - @backstage/backend-plugin-api@0.8.0-next.3
+  - @backstage/backend-common@0.23.4-next.3
+  - @backstage/plugin-techdocs-node@1.12.9-next.3
+  - @backstage/plugin-search-backend-module-techdocs@0.1.28-next.3
+
 ## 1.10.10-next.2
 
 ### Patch Changes

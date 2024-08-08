@@ -1,5 +1,17 @@
 # @backstage/plugin-scaffolder
 
+## 1.24.0-next.3
+
+### Patch Changes
+
+- d18f4eb: Fix undefined in the title of Scaffolder Runs on the page load
+- Updated dependencies
+  - @backstage/frontend-plugin-api@0.7.0-next.3
+  - @backstage/core-compat-api@0.2.8-next.3
+  - @backstage/plugin-catalog-react@1.12.3-next.3
+  - @backstage/plugin-scaffolder-react@1.11.0-next.3
+  - @backstage/integration-react@1.1.30-next.0
+
 ## 1.24.0-next.2
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @backstage/plugin-search-react
 
+## 1.7.14-next.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/frontend-plugin-api@0.7.0-next.3
+
 ## 1.7.14-next.2
 
 ### Patch Changes

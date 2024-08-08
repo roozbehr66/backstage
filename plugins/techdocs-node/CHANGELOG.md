@@ -1,5 +1,14 @@
 # @backstage/plugin-techdocs-node
 
+## 1.12.9-next.3
+
+### Patch Changes
+
+- 5cedd9f: Fix TechDocs Edit URL for nested docs
+- Updated dependencies
+  - @backstage/backend-plugin-api@0.8.0-next.3
+  - @backstage/backend-common@0.23.4-next.3
+
 ## 1.12.9-next.2
 
 ### Patch Changes

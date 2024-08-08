@@ -1,5 +1,17 @@
 # @backstage/plugin-techdocs
 
+## 1.10.8-next.3
+
+### Patch Changes
+
+- 8543e72: TechDocs redirect feature now includes a notification to the user before they are redirected.
+- Updated dependencies
+  - @backstage/frontend-plugin-api@0.7.0-next.3
+  - @backstage/core-compat-api@0.2.8-next.3
+  - @backstage/plugin-catalog-react@1.12.3-next.3
+  - @backstage/plugin-search-react@1.7.14-next.3
+  - @backstage/integration-react@1.1.30-next.0
+
 ## 1.10.8-next.2
 
 ### Patch Changes

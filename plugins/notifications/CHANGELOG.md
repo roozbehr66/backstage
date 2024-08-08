@@ -1,5 +1,11 @@
 # @backstage/plugin-notifications
 
+## 0.3.0-next.1
+
+### Minor Changes
+
+- 0410fc9: By default, set notification as read when opening snackbar or web notification link
+
 ## 0.2.4-next.0
 
 ### Patch Changes
