@@ -37,7 +37,13 @@ export default createBackendPlugin({
         signals: signalsServiceRef,
       },
       async init({ database, identity, httpRouter, signals }) {
-        httpRouter.use(await createRouter({ database, identity, signals }));
+        httpRouter.use(
+          await createRouter({
+            database,
+            identity,
+            signals,
+          }),
+        );
       },
     });
   },
